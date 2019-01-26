@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Vue4You
+The JavaScript framework we've all been waiting for <3
+
+---
+
+# About Me
+
+I'm a KISS, GSD developer, I love elegant, simple coding solutions, and I love to make stuff!
+
+I'm a founder of the Techogee user group, I used to teach coding to 6-12th graders. I live on a ranch in Muskogee with my dogs, horse, and lots of chickens.
+
+I currently work remotely at LegalShield as a Software Engineer, but have also worked as a designer, I and love all things UX. 
+
+--- 
+
+# What's up with Vue?
+
+## Super simple to add to existing projects
+The best thing about Vue is it can be easily used in just about any web app.
+
+## No tooling or crazy changes?
+You don't have to install any command line tools, know about node, complie anything, have any fancy tools, change your folder structure, anything.
+
+## What do you need to know to get started?
+If you know how to work with normal HTML and CSS, and have a basic understanding of JavaScript fundamentals, you are just about ready to go with Vue.
+
+---
+
+# Vue at its simplest...
+
+1. Create html page
+`https://jsfiddle.net/boilerplate/bootstrap`
+2. Add vue
+`<![CDATA[<script src="https://unpkg.com/vue@2.5.21/dist/vue.js"></script>]]>`
+3. Add vue template
+Normal template w/ID
+Handlebar syntax
+4. Load single variable
+```
+	var demo = new Vue({
+	  el: '#myElement',
+	  data: {
+		message: 'Hello World'
+	  }
+	});
+```
+
+---
+
+# Add sparkle
+
+5. Add list of content
+Make it cooler! Let's spice it up and cycle through some messages to liven up the page a bit...
+```
+data: {
+	...
+	messageOptions: [
+		'Hola',
+		'What\'s Up?',
+		'What\'s Crackliackin\'?',
+		'Hey hey hey!',
+		'Yolo fools'
+	]
+	messageIndex: 0
+},
+methods: {
+	cycleMessages: function () 	{
+		var self = this;
+		setTimeout(function(){
+			self.message = self.messageOptions[self.messageIndex++];
+			if (self.messageIndex > self.messageOptions.length){
+			self.messageIndex = 0;
+			}
+			self.cycleMessages();
+		},5000);
+	}
+}
+```
+And we want it to have it start changing right away when the component is created. (It could be called on click or something else instead...)
+
+```
+created: function(){
+	this.cycleMessages();
+}
+```
+
+---
+
+# Easy Input Binding
+
+5. Add variable binding
+Add a custom field..
+
+input with:
+
+```
+<![CDATA[<input v-model="message"/>]]>
+```
+Field is automatically set!
+oops...it'll just get overridden...
+```
+@input="stopCycle"
+```
+(add to input)
+
+Add function..
+```
+data: {
+	...
+	doCycle: true
+},
+methods:{
+	//....
+	stopCycle: function() {
+		this.doCycle = false;
+	},	
+}
+```
+And inside our cycleMessage function...
+```
+if (doCycle) {
+	self.cycleMessages();
+}
+```
+
+Link to final product:
+https://jsfiddle.net/sgelbart/62aq0Lfm/13/
+
+---
+
+# command line install
+- codesandbox.io (or else any computer with node)
+# hello world component
+# create index
+# create individual page
+# dual view with nested components
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

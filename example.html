@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://getbootstrap.com/docs/4.2/examples/blog/ -->
+<html lang="en" capture-installed="true" class="gr__getbootstrap_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Blog Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@2.5.21/dist/vue.js"></script>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="./romcom_files/css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./romcom_files/blog.css" rel="stylesheet">
+  </head>
+  <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Subscribe</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Large</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3" focusable="false" role="img"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">World</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">U.S.</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Technology</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Design</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Culture</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Business</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Politics</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Opinion</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Science</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Health</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Style</a>
+      <a class="p-2 text-muted" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Travel</a>
+    </nav>
+  </div>
+
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
+      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+      <p class="lead mb-0"><a href="https://getbootstrap.com/docs/4.2/examples/blog/#" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+
+  <div id="movieList" class="row mb-2">
+    <div class="col-md-6" v-for="item in items">
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <h3 class="mb-0">
+            <a class="text-dark" href="https://getbootstrap.com/docs/4.2/examples/blog/#">{{ item.movie_title }}</a>
+          </h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Continue reading</a>
+        </div>
+        <svg class="bd-placeholder-img card-img-right flex-auto d-none d-lg-block" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"></rect><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-3 mb-4 font-italic border-bottom">
+        From the Firehose
+      </h3>
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">Sample blog post</h2>
+        <p class="blog-post-meta">January 1, 2014 by <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Mark</a></p>
+
+        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+        <hr>
+        <p>Cum sociis natoque penatibus et magnis <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+        <blockquote>
+          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </blockquote>
+        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+        <h2>Heading</h2>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+        <h3>Sub-heading</h3>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <pre><code>Example code block</code></pre>
+        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+        <h3>Sub-heading</h3>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <ul>
+          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+          <li>Donec id elit non mi porta gravida at eget metus.</li>
+          <li>Nulla vitae elit libero, a pharetra augue.</li>
+        </ul>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+        <ol>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+          <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+          <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+        </ol>
+        <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+      </div><!-- /.blog-post -->
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">Another blog post</h2>
+        <p class="blog-post-meta">December 23, 2013 by <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Jacob</a></p>
+
+        <p>Cum sociis natoque penatibus et magnis <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+        <blockquote>
+          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </blockquote>
+        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      </div><!-- /.blog-post -->
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">New feature</h2>
+        <p class="blog-post-meta">December 14, 2013 by <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Chris</a></p>
+
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <ul>
+          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+          <li>Donec id elit non mi porta gravida at eget metus.</li>
+          <li>Nulla vitae elit libero, a pharetra augue.</li>
+        </ul>
+        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+      </div><!-- /.blog-post -->
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="https://getbootstrap.com/docs/4.2/examples/blog/#">Newer</a>
+      </nav>
+
+    </div><!-- /.blog-main -->
+
+    <aside class="col-md-4 blog-sidebar">
+      <div class="p-3 mb-3 bg-light rounded">
+        <h4 class="font-italic">About</h4>
+        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+
+      <div class="p-3">
+        <h4 class="font-italic">Archives</h4>
+        <ol class="list-unstyled mb-0">
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">March 2014</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">February 2014</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">January 2014</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">December 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">November 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">October 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">September 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">August 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">July 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">June 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">May 2013</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">April 2013</a></li>
+        </ol>
+      </div>
+
+      <div class="p-3">
+        <h4 class="font-italic">Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">GitHub</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Twitter</a></li>
+          <li><a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Facebook</a></li>
+        </ol>
+      </div>
+    </aside><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>
+    <a href="https://getbootstrap.com/docs/4.2/examples/blog/#">Back to top</a>
+  </p>
+</footer>
+
+<script>
+	var apiURL =  'https://fayepi.herokuapp.com/romcoms';
+
+	/**
+	 * Actual demo
+	 */
+
+	var demo = new Vue({
+
+	  el: '#movieList',
+
+	  data: {
+		startYear: 1960,
+		endYear: 2018,
+		currentYear: null,
+		raiting: null,
+		items: null
+	  },
+
+	  created: function () {
+		this.fetchData()
+	  },
+
+	  watch: {
+		currentBranch: 'fetchData'
+	  },
+
+	  filters: {
+		truncate: function (v) {
+		  var newline = v.indexOf('\n')
+		  return newline > 0 ? v.slice(0, newline) : v
+		},
+		formatDate: function (v) {
+		  return v.replace(/T|Z/g, ' ')
+		}
+	  },
+
+	  methods: {
+		fetchData: function () {
+		  var xhr = new XMLHttpRequest()
+		  var self = this
+		  //xhr.open('GET', apiURL + self.currentBranch)
+		  xhr.open('GET', apiURL)
+		  xhr.onload = function () {
+			self.items = JSON.parse(xhr.responseText)
+			console.log(self.items[0])
+		  }
+		  xhr.send()
+		}
+	  }
+	})
+
+</script>
+
+</body></html>
