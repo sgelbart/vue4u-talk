@@ -14,8 +14,8 @@
 <script src="https://unpkg.com/vue@2.5.21/dist/vue.js"></script>
     <style>
       #movieList img {
-        width: 100%;
-        height: auto;
+        max-width:100%;
+        height:auto;
       }
     </style>
     <!-- Custom styles for this template -->
@@ -24,20 +24,26 @@
     <link href="./romcom_files/blog.css" rel="stylesheet">
   </head>
   <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+  	<div class="jumbotron">
+  		<div class="container">
+  			<h1>Romcom Finder</h1>
+  			<p>Need to find a Romcom to watch? Check here!</p>
+		</div>
+  	</div>
     <div class="container">
-	  <div id="movieList" class="row mb-2">
+	  <div id="movieList" class="row">
 		<div class="col-md-6" v-for="item in items">
-		  <div class="row mb-4 shadow-sm h-md-250">
-			<div class="col-sm-9">
+		  <div class="row shadow-sm h-md-250" style="margin: 0px; margin-bottom: 20px;">
+			<div class="col-sm-8">
 			  <strong class="d-inline-block mb-2 text-primary">World</strong>
 			  <h3 class="mb-0">
 				<a class="text-dark" href="https://getbootstrap.com/docs/4.2/examples/blog/#">{{ item.movie_title }}</a>
 			  </h3>
 			  <div class="mb-1 text-muted">{{ item.year_released }}</div>
-			  <p class="card-text mb-auto">{{ item.movie_description }}</p>
+			  <p class="card-text mb-auto">{{ item.movie_description | shorten}}</p>
 			  <a v-bind:href="item.movie_link">Continue reading</a>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4 pr-0">
 				<img v-bind:src="item.movie_pic"/>
 			</div>
 		  </div>
@@ -66,7 +72,16 @@
 	  created: function () {
 		this.fetchData()
 	  },
-
+	  filters: {
+	  	shorten: function(value) {
+	  		var maxLength = 160;
+	  		if (value.length < 160) return value;
+	  		var shortenedString = value.substring(0, 160)
+	  		var lastSpace = shortenedString.lastIndexOf(" ")
+	  		shortenedString = shortenedString.substring(0, lastSpace)
+	  		return  shortenedString + "..."
+	  	}
+	  },
 	  methods: {
 		fetchData: function () {
 		  var xhr = new XMLHttpRequest()
