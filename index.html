@@ -30,7 +30,9 @@ I'm a KISS, GSD developer, I love elegant, simple coding solutions, and I love t
 
 I'm a founder of the Techogee user group and I used to teach coding to 6-12th graders. I live on a ranch in Muskogee with my dogs, horse, and lots of chickens.
 
-I currently work remotely at LegalShield as a Software Engineer, but have also worked as a designer, I and love all things UX. 
+I've been to Burning Man for the last six years. If you don't know what Burning Man it's basically a giant makerfest with more fire, nudity, yoga, and booze.
+
+I currently work remotely at LegalShield as a Software Engineer, but have also worked as a designer, I and love all things UX.
 ---
 # What's up with Vue?
 
@@ -55,6 +57,11 @@ Follow along at: https://jsfiddle.net/sgelbart/62aq0Lfm/44/
 3. Add vue template
 Normal template w/ID
 Handlebar syntax
+```html
+	<div id="myElement">
+		{{ message }}
+	</div>
+```
 4. Load single variable
 ```javascript
 	var demo = new Vue({
@@ -69,6 +76,11 @@ Handlebar syntax
 
 5. Add list of content
 Make it cooler! Let's spice it up and cycle through some messages to liven up the page a bit...
+```html
+	<div id="myElement">
+		{{ messageOptions[messageIndex] }}
+	</div>
+```
 ```javascript
 data: {
 	...
@@ -83,14 +95,10 @@ data: {
 },
 methods: {
 	cycleMessages: function () 	{
-		var self = this;
-		setTimeout(function(){
-			self.message = self.messageOptions[self.messageIndex++];
-			if (self.messageIndex > self.messageOptions.length){
-			self.messageIndex = 0;
-			}
-			self.cycleMessages();
-		},5000);
+      var that = this;
+      setInterval(function(){
+      	that.i = that.i++%that.messages.length;
+      },5000);
 	}
 }
 ```
@@ -110,38 +118,74 @@ Add a custom field..
 input with:
 
 ```html
-<input v-model="message"/>
+<input v-model="customMessage"/>
+```
+
+```js
+	customMessage: ""
 ```
 Field is automatically set!
-oops...it'll just get overridden...
-```javascript
-@input="stopCycle"
-```
-(add to input)
 
-Add function..
-```javascript
-data: {
-	...
-	doCycle: true
-},
-methods:{
-	//....
-	stopCycle: function() {
-		this.doCycle = false;
-	},	
-}
+(add to input)
+```html
+{{ customMessage || messageOptions[messageIndex] }}
 ```
-And inside our cycleMessage function...
-```javascript
-if (doCycle) {
-	self.cycleMessages();
-}
+
+6. Event binding
+want to do something on click? On change?
+- Validation
+- Tooltips
+- Submission
+When this...do that...
+```html
+<input v-model="customMessage" v-on:input="logMessage"/>
+```
+
+```js
+	logMessage: function() {
+		console.log(customMessage)
+	}
 ```
 
 Link to final product:
 https://jsfiddle.net/sgelbart/62aq0Lfm/13/
 ---
+# Ajax
+Just like we're calling 
+
+---
+# Command Line Vue
+Tools
+- package installation
+- .vue files
+  - syntax highlighting
+  - css scoping
+- sass etc
+---
+# Server side rendering
+- Search Engine Optimization
+- Faster
+- Caching
+- Want to know the difference? View the source.
+---
+# NUXT.js
+- Vue's SSR Framework
+- Vue templates work backend and continue on front end
+- Very easy to use
+---
+# Let's get started
+- https://codesandbox.io
+- package.json
+= Add axios for ajax
+- has it's own server, does things on the fly behind the scenes
+---
+# Custom Ajax Method
+- Add our list from the earlier method.
+
+--- 
+
+
+
 # command line install
 - codesandbox.io (or else any computer with node)
 # hello world component
