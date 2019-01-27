@@ -122,7 +122,9 @@ https://jsfiddle.net/sgelbart/62aq0Lfm/13/
 https://sgelbart.github.io/vue4u-talk/example.html
 - Run ajax in created function
 - Set returned value to a data field
-- Auto updates everything!
+- Updates once loaded automatically!
+- Gotchas: can't use handlebars in attributes
+- Also cool...pipes (filters)
 ---
 # Command Line Vue
 Tools
@@ -160,10 +162,10 @@ Tools
 - Vuex store
 ---
 # UI Goodies
-- Element
-- Bootstrap
-- Material
-- Vue's own
+- Element - https://element.eleme.io/#/en-US
+- Bootstrap - https://bootstrap-vue.js.org/docs/components/alert
+- Material - https://vuetifyjs.com/en/
+- Vue's own - https://vuejs.github.io/ui/#/demo/button
 ---
 # Possible Backends
 - API - Django API? - most common approach
